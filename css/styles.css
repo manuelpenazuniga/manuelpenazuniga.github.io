@@ -449,9 +449,9 @@ Page Styles
 
 .text {
    
-    font-size: 18px;
-    padding-right: 30px;
-
+    font-size: 16px;
+    padding-right: 90px;
+    line-height: 1.8;
     
 }
 
