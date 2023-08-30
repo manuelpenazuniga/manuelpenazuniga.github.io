@@ -449,8 +449,10 @@ Page Styles
 
 .text {
    
-    font-size: 30px;
-    color: aqua;
+    font-size: 18px;
+    padding-right: 30px;
+
+    
 }
 
 .pr-list {
