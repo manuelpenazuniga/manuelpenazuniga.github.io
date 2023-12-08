@@ -456,7 +456,8 @@ Page Styles
 }
 
 .wrk-exp {
-    font-size: 16px;  
+    font-size: 16px;
+    line-height: 1.8;  
     margin-left: 120px;
 }
 
