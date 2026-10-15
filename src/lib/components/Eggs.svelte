@@ -50,7 +50,11 @@
 			if (typed.endsWith(KONAMI)) walk();
 			if (typed.endsWith(FILM)) toggle('data-film');
 			if (typed.endsWith(DESERT)) toggle('data-stars');
-			if (typed.endsWith(SHELL)) shell();
+			if (typed.endsWith(SHELL)) {
+				// keep the last "l" out of the prompt the terminal is about to focus
+				e.preventDefault();
+				shell();
+			}
 		};
 		addEventListener('keydown', onKey);
 
