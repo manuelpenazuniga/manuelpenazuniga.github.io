@@ -21,7 +21,7 @@
 		<p class="fine">
 			Charts rebuilt from my commit history on {activity.generated}. This page is
 			<a href="{site.github}/manuelpenazuniga.github.io">open source</a>, and it has a terminal if you
-			know which key to press.
+			know which key to press (or what to type).
 		</p>
 	</div>
 </footer>
