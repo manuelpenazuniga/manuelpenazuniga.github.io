@@ -113,13 +113,24 @@
 	}
 
 	onMount(() => {
+		const open = () => dialog.open || dialog.showModal();
+		// ` is a dead key on Spanish and Latin American layouts, so also accept
+		// the key left of 1 by position (Macs with ISO keyboards report it as
+		// IntlBackslash), and typing "shell" anywhere (see Eggs.svelte)
 		const onKey = (e) => {
-			if (e.key !== '`' || e.target.closest?.('input, textarea, [contenteditable]')) return;
-			e.preventDefault();
-			if (!dialog.open) dialog.showModal();
+			if (e.target.closest?.('input, textarea, [contenteditable]')) return;
+			const bare = !e.metaKey && !e.ctrlKey && !e.altKey;
+			if (e.key === '`' || (bare && (e.code === 'Backquote' || e.code === 'IntlBackslash'))) {
+				e.preventDefault();
+				open();
+			}
 		};
 		addEventListener('keydown', onKey);
-		return () => removeEventListener('keydown', onKey);
+		addEventListener('terminal:open', open);
+		return () => {
+			removeEventListener('keydown', onKey);
+			removeEventListener('terminal:open', open);
+		};
 	});
 </script>
 
